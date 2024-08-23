@@ -25,16 +25,9 @@ const MenuSidebar = () => {
             url: '/customers',
             icon: 'icon-users2',
         },
-        {
-            text: 'Categories',
-            url: '/categories',
-            icon: 'icon-users2',
-        },
-        {
-            text: 'Settings',
-            url: '/settings',
-            icon: 'icon-cog',
-        },
+
+     
+    
     ];
 
     return (
@@ -49,6 +42,9 @@ const MenuSidebar = () => {
                     </Link>
                 </li>
             ))}
+              <li>
+              {/* <button>Logout</button> */}
+            </li>
         </ul>
     );
 };

@@ -29,14 +29,14 @@ export default function Login() {
   
     useEffect(() => {
      if(token) {
-    //   router.push('/')
+      router.push('/')
      }
     }, [token])
     
 
     return (
-        <div className="ps-my-account">
-            <div className="container">
+        <div className="ps-my-account mt-20 flex items-center h-screen justify-center">
+            <div className="w-[40%]">
                 <Form
                     className="ps-form--account"
                     onFinish={(e) => e.preventDefault()}>
@@ -110,7 +110,7 @@ export default function Login() {
                                 </button>
                             </div>
                         </div>
-                        <div className="ps-form__footer">
+                        {/* <div className="ps-form__footer">
                             <p>Connect with:</p>
                             <ul className="ps-list--social">
                                 <li>
@@ -146,7 +146,7 @@ export default function Login() {
                                     </a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
                 </Form>
             </div>

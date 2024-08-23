@@ -14,10 +14,10 @@ const OrdersPage = () => {
         <ContainerDefault>
             <HeaderDashboard
                 title="Orders"
-                description="Martfury Orders Listing"
+                description="Tingo Orders Listing"
             />
             <section className="ps-items-listing">
-                <div className="ps-section__header simple">
+                {/* <div className="ps-section__header simple">
                     <div className="ps-section__filter">
                         <form
                             className="ps-form--filter"
@@ -62,7 +62,7 @@ const OrdersPage = () => {
                             <i className="icon icon-download2 mr-2"></i>Export
                         </a>
                     </div>
-                </div>
+                </div> */}
                 <div className="ps-section__content">
                     <TableOrdersItems />
                 </div>

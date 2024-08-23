@@ -26,6 +26,16 @@ export const getAdminProducts = createAsyncThunk(
     }
 );
 
+export const getAdminCustomers = createAsyncThunk(
+    `admin/getAdminCustomers`,
+    async (data) => {
+        const response = await axios.get('admin/customers', {
+         
+        });
+        return response;
+    }
+);
+
 export const AddProducts = createAsyncThunk(
     `customer/products`,
     async (data) => {
@@ -290,6 +300,11 @@ const initialState = {
         isLoading: true,
     },
 
+    allcust: {
+        results: null,
+        isLoading: true,
+    },
+
     addproducts: {
         results: null,
         isLoading: false,
@@ -423,6 +438,18 @@ export const productSlice = createSlice({
             })
             .addCase(getAdminProducts.rejected, (state) => {
                 state.allproducts.isLoading = true;
+            });
+
+            builder
+            .addCase(getAdminCustomers.pending, (state) => {
+                state.allcust.isLoading = true;
+            })
+            .addCase(getAdminCustomers.fulfilled, (state, { payload }) => {
+                state.allcust.isLoading = false;
+                state.allcust.results = payload;
+            })
+            .addCase(getAdminCustomers.rejected, (state) => {
+                state.allcust.isLoading = true;
             });
 
         //single products

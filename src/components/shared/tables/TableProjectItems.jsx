@@ -38,9 +38,9 @@ const TableProjectItems = ({data}) => {
     
         {
           field: "stock",
-          header: "stock",
+          header: "Quantity",
           body: (rowData, index) => {
-            return <p>{rowData?.in_stock}</p>;
+            return <p>{parseInt(rowData?.quantity)}</p>;
           },
         },
 
@@ -48,7 +48,7 @@ const TableProjectItems = ({data}) => {
             field: "price",
             header: "Price",
             body: (rowData, index) => {
-              return <p>{rowData?.price}</p>;
+              return <p>{rowData?.unit_price}</p>;
             },
           }
       ];
@@ -66,7 +66,7 @@ const TableProjectItems = ({data}) => {
             rowsPerPageOptions={[5, 10, 25, 50]}
             tableStyle={{ minWidth: "30rem" }}
             style={{ position: "inherit", fontSize:'16px' }}
-            header={searchBar}
+            // header={searchBar}
             globalFilterFields={[
                 "name",
                 "price",

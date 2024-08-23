@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ps-my-account {
+    min-height: 100vh;
+    background-color: #f1f1f1;
+}
+
+.ps-form--account {
+    padding-top: 0;
+    margin-bottom: 30px;
+    border: 1px solid #e8e8e8;
+
+    .ps-tab-list {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #e8e8e8;
+
+        li {
+            width: 100%;
+            max-width: 50%;
+            margin-right: 0;
+            padding: 20px 15px;
+
+            a {
+                font-size: 24px;
+                line-height: 1em;
+            }
+
+            &.active {
+                border-bottom: 2px solid blue;
+
+                a {
+                    color: blue;
+                }
+            }
+        }
+    }
+}

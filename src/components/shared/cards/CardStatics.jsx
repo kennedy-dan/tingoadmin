@@ -1,10 +1,18 @@
-import React from 'react';
-
-const CardStatics = () => (
+import React, {useEffect} from 'react';
+import { orderHistory } from '~/redux/features/productSlice';
+import { useDispatch, useSelector } from 'react-redux';
+const CardStatics = () => {
+    const { getOrder } = useSelector((state) => state.product);
+    const dispatch = useDispatch();
+    const data = getOrder?.results?.data?.data?.data;
+    useEffect(() => {
+        dispatch(orderHistory());
+    }, []);
+    return(
     <section className="ps-card ps-card--statics">
         <div className="ps-card__header">
             <h4>Statics</h4>
-            <div className="ps-card__sortby">
+            {/* <div className="ps-card__sortby">
                 <i className="icon-calendar-empty"></i>
                 <div className="form-group--select">
                     <select className="form-control">
@@ -14,7 +22,7 @@ const CardStatics = () => (
                     </select>
                     <i className="icon-chevron-down"></i>
                 </div>
-            </div>
+            </div> */}
         </div>
         <div className="ps-card__content">
             <div className="ps-block--stat yellow">
@@ -26,15 +34,15 @@ const CardStatics = () => (
                 <div className="ps-block__content">
                     <p>Orders</p>
                     <h4>
-                        254
+                        {data?.length}
                         <small className="asc">
-                            <i className="icon-arrow-up"></i>
-                            <span>12,5%</span>
+                            {/* <i className="icon-arrow-up"></i>
+                            <span>12,5%</span> */}
                         </small>
                     </h4>
                 </div>
             </div>
-            <div className="ps-block--stat pink">
+            {/* <div className="ps-block--stat pink">
                 <div className="ps-block__left">
                     <span>
                         <i className="icon-cart"></i>
@@ -67,9 +75,10 @@ const CardStatics = () => (
                         </small>
                     </h4>
                 </div>
-            </div>
+            </div> */}
         </div>
     </section>
-);
+    )
+};
 
 export default CardStatics;

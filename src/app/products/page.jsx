@@ -35,8 +35,8 @@ const ProductPage = () => {
         // dispatch(getSingleProduct(id));
     };
 
-    const data = allproducts?.results?.data?.data?.data;
-    const columnData= allproducts?.results?.data?.data?.data;
+    const data = allproducts?.results?.data?.data;
+    const columnData= allproducts?.results?.data?.data;
 
     const handleAddCoupon = () => {
         if (selectedDate) {
@@ -55,10 +55,10 @@ const ProductPage = () => {
         <ContainerDefault title="Products">
             <HeaderDashboard
                 title="Products"
-                description="Martfury Product Listing "
+                description="Tingo Product Listing "
             />
             <section className="ps-items-listing">
-                <div className="ps-section__actions">
+                {/* <div className="ps-section__actions">
                     <Link
                         href="/products/create-product"
                         className="ps-btn success">
@@ -73,7 +73,7 @@ const ProductPage = () => {
                         <i className="icon icon-plus mr-2" />
                         Add Coupon
                     </button>
-                </div>
+                </div> */}
                 <div className="ps-section__header">
                    
                 </div>
@@ -84,7 +84,7 @@ const ProductPage = () => {
                     <p>Show 10 in 30 items.</p>
                     <Pagination />
                 </div> */}
-                <Modal
+                {/* <Modal
                     width={800}
                     style={{ height: '', width: '600px' }}
                     open={openTrack}
@@ -115,7 +115,7 @@ const ProductPage = () => {
                             />
                         </div>
                     </div>
-                </Modal>
+                </Modal> */}
             </section>
         </ContainerDefault>
     );

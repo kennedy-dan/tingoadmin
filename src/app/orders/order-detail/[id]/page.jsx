@@ -1,5 +1,5 @@
 'use client';
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import ContainerDefault from '~/components/layouts/ContainerDefault';
 import ModuleOrderShippingInformation from '~/components/partials/orders/ModuleOrderShippingInformation';
 import ModuleOrderBillingInformation from '~/components/partials/orders/ModuleOrderBillingInformation';
@@ -9,10 +9,9 @@ import { useParams } from 'next/navigation';
 import { orderHistoryId } from '~/redux/features/productSlice';
 
 const OrderDetailPage = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const params = useParams();
-    const {getOrderid} = useSelector(state => state.product)
-
+    const { getOrderid } = useSelector((state) => state.product);
 
     const { id } = params;
 
@@ -20,15 +19,15 @@ const OrderDetailPage = () => {
         dispatch(orderHistoryId(id));
     }, [id]);
 
-    const det = getOrderid?.results?.data?.items
+    const det = getOrderid?.results?.data?.items;
 
-    console.log(det)
+    console.log(det);
 
     return (
         <ContainerDefault title="Order Detail">
             <HeaderDashboard
                 title="Order Detail"
-                description="Martfury Order Detail"
+                description=" Order Detail"
             />
             <section className="ps-dashboard">
                 <div className="ps-section__left">
@@ -37,7 +36,7 @@ const OrderDetailPage = () => {
                             <ModuleOrderShippingInformation data={getOrderid} />
                         </div>
                         <div className="col-md-4">
-                            <ModuleOrderBillingInformation data={getOrderid}  />
+                            <ModuleOrderBillingInformation data={getOrderid} />
                         </div>
                         {/* <div className="col-md-4">
                             <ModuleOrderShippingInformation data={getOrderid}  />
@@ -55,31 +54,35 @@ const OrderDetailPage = () => {
                                             <th>Product</th>
                                             <th>Quantity</th>
                                             <th>Price</th>
-                                            <th>Total</th>
+                                            <th className='flex justify-end' >Total</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    {det?.map(item =>   <tr>
-                                            <td>
-                                                <a href="#">
-                                                 {item?.product_name}
-                                                </a>
-                                            </td>
-                                            <td>
-                                            {item?.quantity}
+                                        {det?.map((item) => (
+                                            <tr>
+                                                <td>
+                                                    <a href="#">
+                                                        {item?.product?.name}
+                                                    </a>
+                                                </td>
+                                                <td>{item?.quantity}</td>
+                                                <td>{item?.unit_price}</td>
+                                                <td>{item?.unit_price}</td>
+                                            </tr>
+                                        ))}
 
-                                            </td>
-                                            <td>{item?.unit_price}</td>
-                                            <td>{item?.unit_price}</td>
-                                        </tr>)}
-
-                                      
                                         <tr>
                                             <td colSpan="3">
                                                 <strong>Sub Total:</strong>
                                             </td>
                                             <td>
-                                                <strong>{getOrderid?.results?.data?.payment?.amount}</strong>
+                                                <strong>
+                                                    {
+                                                        getOrderid?.results
+                                                            ?.data?.payment
+                                                            ?.amount
+                                                    }
+                                                </strong>
                                             </td>
                                         </tr>
                                         {/* <tr>
@@ -105,7 +108,13 @@ const OrderDetailPage = () => {
                                                 <strong>Total:</strong>
                                             </td>
                                             <td>
-                                                <strong>{getOrderid?.results?.data?.payment?.amount}</strong>
+                                                <strong>
+                                                    {
+                                                        getOrderid?.results
+                                                            ?.data?.payment
+                                                            ?.amount
+                                                    }
+                                                </strong>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -114,7 +123,7 @@ const OrderDetailPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="ps-section__right">
+                {/* <div className="ps-section__right">
                     <div className="ps-card ps-card--track-order">
                         <div className="ps-card__header">
                             <h4>Track Order</h4>
@@ -177,9 +186,9 @@ const OrderDetailPage = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </section>
         </ContainerDefault>
     );
 };
-export default OrderDetailPage
+export default OrderDetailPage;

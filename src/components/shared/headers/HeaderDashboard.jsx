@@ -1,10 +1,21 @@
+import Link from 'next/link';
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import FormHeaderSearch from '~/components/shared/forms/FormHeaderSearch';
+import { logOutCustomer } from '~/redux/features/authSlice';
 
 const HeaderDashboard = ({
     title = 'Dashboard',
     description = 'Everything here',
 }) => {
+    const dispatch = useDispatch()
+    const {user} = useSelector(state=> state.auth)
+
+    const logOut = () => {
+        dispatch(logOutCustomer());
+      };
+
+    
     return (
         <header className="header--dashboard">
             <div className="header__left">
@@ -14,12 +25,20 @@ const HeaderDashboard = ({
             <div className="header__center">
                 <FormHeaderSearch />
             </div>
-            <div className="header__right">
-                <a className="header__site-link" href="#">
-                    <span>View your store</span>
+            {!user &&  <div className="header__right">
+                <Link className="header__site-link" href="/account/login">
+                    <span>Login</span>
                     <i className="icon-exit-right"></i>
-                </a>
-            </div>
+                </Link>
+            </div>}
+
+            {user &&  <div className="header__right">
+                <button onClick={logOut} className="header__site-link" >
+                    <span>Logout</span>
+                    <i className="icon-exit-right"></i>
+                </button>
+            </div>}
+           
         </header>
     );
 };

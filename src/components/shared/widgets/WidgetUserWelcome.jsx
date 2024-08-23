@@ -1,6 +1,8 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 const WidgetUserWelcome = () => {
+    const {user} = useSelector(state => state.auth)
     return (
         <div className="ps-block--user-wellcome">
             <div className="ps-block__left">
@@ -8,14 +10,14 @@ const WidgetUserWelcome = () => {
             </div>
             <div className="ps-block__right">
                 <p>
-                    Hello,<a href="#">Soho Store</a>
+                    Hello,<a href="#">{user?.first_name}</a>
                 </p>
             </div>
-            <div className="ps-block__action">
+            {/* <div className="ps-block__action">
                 <a href="#">
                     <i className="icon-exit"></i>
                 </a>
-            </div>
+            </div> */}
         </div>
     );
 };

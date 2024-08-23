@@ -16,15 +16,15 @@ export default  function Page() {
                         <div className="col-xl-8 col-12">
                             <CardSaleReport />
                         </div>
-                        <div className="col-xl-4 col-12">
+                        {/* <div className="col-xl-4 col-12">
                             <CardEarning />
-                        </div>
+                        </div> */}
                     </div>
                     <CardRecentOrders />
                 </div>
                 <div className="ps-section__right">
                     <CardStatics />
-                    <CardTopCountries />
+                    {/* <CardTopCountries /> */}
                 </div>
             </section>
         </ContainerDashboard>
