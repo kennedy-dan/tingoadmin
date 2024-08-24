@@ -101,7 +101,7 @@ const ContainerDefault = ({ children, title }) => {
             </div>
 
             <div>
-              <Link href="/customes">
+              <Link href="/customers">
                 <div className="text-black">Customers</div>
               </Link>
             </div>
