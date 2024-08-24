@@ -1,12 +1,8 @@
 // authUtils.js
 import { logOutCustomer } from '~/redux/features/authSlice';
-import { store } from '~/redux/store';
+// Create a separate utility function to handle 401 errors
 export const handleUnauthorized = () => {
-    console.log('Unauthorized, logging out');
+    const store = require('~/redux/store').store;
     store.dispatch(logOutCustomer());
-    
-    // Use a small timeout to ensure the dispatch has time to complete
-    setTimeout(() => {
-        window.location.href = '/account/login';
-    }, 100);
+    window.location.href = '/account/login';
 };

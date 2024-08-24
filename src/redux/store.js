@@ -30,7 +30,7 @@ const storage =
 
 
 const persistConfig = {
-	key: "rbwtrendit",
+	key: "tingoadmin",
 	storage,
 };
 
