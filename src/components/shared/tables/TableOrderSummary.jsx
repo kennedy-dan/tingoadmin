@@ -5,8 +5,9 @@ import Link from 'next/link';
 import DropdownAction from '~/components/elements/basic/DropdownAction';
 
 const TableOrderSummary = () => {
-    const getOrder = useSelector((state) => state.product?.getOrder);
+    const { getOrder = {} } = useSelector((state) => state.product);
     const dispatch = useDispatch();
+    console.log(getOrder)
     const data = getOrder?.results?.data?.data?.data;
     useEffect(() => {
         dispatch(orderHistory());
