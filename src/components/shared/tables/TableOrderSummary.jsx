@@ -5,7 +5,7 @@ import Link from 'next/link';
 import DropdownAction from '~/components/elements/basic/DropdownAction';
 
 const TableOrderSummary = () => {
-    const getOrder = useSelector((state) => state.product?.getOrder);
+    const {getOrder} = useSelector((state) => state.product);
     const dispatch = useDispatch();
     const [isLoading, setIsLoading] = useState(true);
     console.log(getOrder)
