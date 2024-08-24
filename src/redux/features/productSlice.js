@@ -266,7 +266,7 @@ export const getCategoriesWithProducts = createAsyncThunk(
 // );
 
 const initialState = {
-    loading,
+    loading: null,
     getadmincarts: {
         results: null,
         isLoading: true,
