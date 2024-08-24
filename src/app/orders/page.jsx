@@ -6,9 +6,16 @@ import Pagination from '~/components/elements/basic/Pagination';
 import { Select } from 'antd';
 import Link from 'next/link';
 import HeaderDashboard from '~/components/shared/headers/HeaderDashboard';
+import { orderHistory } from '~/redux/features/productSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const { Option } = Select;
 const OrdersPage = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(orderHistory());
+    }, [dispatch]);
         
     return (
         <ContainerDefault>

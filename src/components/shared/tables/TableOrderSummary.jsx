@@ -10,9 +10,7 @@ const TableOrderSummary = () => {
     const [isLoading, setIsLoading] = useState(true);
     console.log(getOrder)
     const data = getOrder?.results?.data?.data?.data;
-    useEffect(() => {
-        dispatch(orderHistory());
-    }, [dispatch]);
+
 
     useEffect(() => {
         if (data) {
