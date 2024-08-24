@@ -5,13 +5,20 @@ import Link from 'next/link';
 import DropdownAction from '~/components/elements/basic/DropdownAction';
 
 const TableOrderSummary = () => {
-    const { getOrder = {} } = useSelector((state) => state.product);
+    const getOrder = useSelector((state) => state.product?.getOrder);
     const dispatch = useDispatch();
+    const [isLoading, setIsLoading] = useState(true);
     console.log(getOrder)
     const data = getOrder?.results?.data?.data?.data;
     useEffect(() => {
         dispatch(orderHistory());
-    }, []);
+    }, [dispatch]);
+
+    useEffect(() => {
+        if (data) {
+            setIsLoading(false);
+        }
+    }, [data]);
 
     const tableItemsView = data?.slice(0,5)?.map((item) => {
         let badgeView, fullfillmentView;
@@ -70,7 +77,7 @@ const TableOrderSummary = () => {
 
     return (
         <div className="table-responsive">
-          <table className="table ps-table">
+            {isLoading? 'Loading':       <table className="table ps-table">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -83,7 +90,8 @@ const TableOrderSummary = () => {
                     </tr>
                 </thead>
                 <tbody>{tableItemsView}</tbody>
-            </table>
+            </table>}
+    
     </div>
     )
 
