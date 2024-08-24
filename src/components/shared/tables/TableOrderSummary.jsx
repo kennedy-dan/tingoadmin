@@ -77,7 +77,7 @@ const TableOrderSummary = () => {
 
     return (
         <div className="table-responsive">
-            {isLoading? 'Loading':       <table className="table ps-table">
+            {getOrder?.isLoading? 'Loading':       <table className="table ps-table">
                 <thead>
                     <tr>
                         <th>ID</th>

@@ -584,7 +584,7 @@ export const productSlice = createSlice({
                 state.getOrder.results = payload;
             })
             .addCase(orderHistory.rejected, (state, { payload }) => {
-                state.getOrder.isLoading = true;
+                state.getOrder.isLoading = false;
             });
 
             builder
