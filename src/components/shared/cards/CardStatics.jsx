@@ -2,12 +2,12 @@ import React, {useEffect} from 'react';
 import { orderHistory } from '~/redux/features/productSlice';
 import { useDispatch, useSelector } from 'react-redux';
 const CardStatics = () => {
-    const { getOrder } = useSelector((state) => state.product);
+    const getOrder = useSelector((state) => state.product?.getOrder);
     const dispatch = useDispatch();
     const data = getOrder?.results?.data?.data?.data;
     useEffect(() => {
         dispatch(orderHistory());
-    }, []);
+    }, [dispatch]);
     return(
     <section className="ps-card ps-card--statics">
         <div className="ps-card__header">
